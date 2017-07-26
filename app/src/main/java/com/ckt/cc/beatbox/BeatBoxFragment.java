@@ -28,7 +28,7 @@ public class BeatBoxFragment extends Fragment {
                 .fragment_beat_box, container, false);
 
         binding.recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
-
+        binding.recyclerView.setAdapter(new SoundAdapter());
 
         return binding.getRoot();
     }
@@ -42,5 +42,28 @@ public class BeatBoxFragment extends Fragment {
             mBinding = binding;
         }
     }
+
+    private class SoundAdapter extends RecyclerView.Adapter<SoundHolder> {
+        @Override
+        public SoundHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+            LayoutInflater inflater = LayoutInflater.from(getActivity());
+            ListItemSoundBinding binding = DataBindingUtil.inflate(inflater, R.layout
+                    .list_item_sound, parent, false);
+
+            return new SoundHolder(binding);
+        }
+
+        @Override
+        public void onBindViewHolder(SoundHolder holder, int position) {
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return 0;
+        }
+    }
+
 
 }
